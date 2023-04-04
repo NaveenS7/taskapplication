@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block body%}
+<h1>Edit Task</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form action="" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-info">Change</button>
+                <a href="{%url  'task-list'%}" class="btn btn-primary">Go back</a>
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

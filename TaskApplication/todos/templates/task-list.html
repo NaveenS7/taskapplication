@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{%block body%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form action="" method="get">
+                {{filter.form.as_p}}
+                <input type="submit" name="" id="">
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div> 
+<div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+
+            <table class="table">
+                <tr>
+                    <th>Task Name</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                {%for task in tasks%}
+                <tr>
+                    <td>{{task.task_name}}</td>
+                    <td>{{task.user}}</td>
+                    <td>{{task.date}}</td>
+                    <td>{{task.status}}</td>
+                    <td>
+                        <a href="{%url  'task-detail' task.id %}" class="btn btn-info">View</a>
+                        <a href="{%url  'task-delete' task.id %}" class="btn btn-danger">Delete</a>
+                        <a href="{%url  'task-edit' task.id %}" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>
+
+        
+                {%endfor%}
+            </table>
+
+
+
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{%endblock%}
